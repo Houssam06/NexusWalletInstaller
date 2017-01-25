@@ -9,7 +9,7 @@ from clint.textui import progress
 
 
 #Create File and Folder Variables
-HomeFolder	 = os.path.expanduser("~")
+HomeFolder = os.path.expanduser("~")
 WalletRar = HomeFolder + '//nexus.tgz'
 WalletFolder = HomeFolder + "//Nexus"
 DatabaseFolder = HomeFolder + "//.Nexus"
