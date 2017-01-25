@@ -1,10 +1,12 @@
 import os
 os.system('python -m pip install tarfile')
+os.system('python -m pip install rarfile')
 os.system('python -m pip install clint')
 os.system('python -m pip install requests')
 import requests
 import distutils.dir_util
 import tarfile
+import rarfile
 from clint.textui import progress
 
 def download(url, path, file):		
