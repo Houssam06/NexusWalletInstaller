@@ -1,11 +1,9 @@
 import os
-#os.system('python -m pip install tarfile')
 os.system('python -m pip install rarfile')
 os.system('python -m pip install clint')
 os.system('python -m pip install requests')
 import requests
 import distutils.dir_util
-#import tarfile
 import rarfile
 from clint.textui import progress
 
@@ -20,7 +18,7 @@ def download(url, path, file):
 				f.flush()
 
 #Create File and Folder Variables
-HomeFolder = os.path.expanduser("~")
+HomeFolder	 = os.path.expanduser("~")
 WalletRar = HomeFolder + '/nexus.tgz'
 WalletFolder = HomeFolder + "/Nexus"
 DatabaseFolder = HomeFolder + "/.Nexus"
