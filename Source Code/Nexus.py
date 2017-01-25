@@ -11,7 +11,7 @@ os.system('python -m pip install rarfile')
 os.system('python -m pip install clint')
 os.system('python -m pip install requests')
 
-# Import Necessary Libraries
+	# Import Necessary Libraries
 import requests
 import distutils.dir_util
 import rarfile
@@ -20,7 +20,7 @@ from clint.textui import progress
 import zipfile
 
 #Define Functions
-		
+			
 def download(url, path, file):		
 	r = requests.get(url, stream=True)
 	print "Downloading %s" %file
@@ -30,7 +30,7 @@ def download(url, path, file):
 			if chunk:
 				f.write(chunk)
 				f.flush()
-				
+
 #Download Nexus Wallet
 HomeFolder	 = os.path.expanduser("~")
 if OS == "Linux": #If OS is Linux
@@ -44,34 +44,34 @@ if OS == "Linux": #If OS is Linux
 	WalletFolder = HomeFolder + "//Nexus"
 	DatabaseFolder = HomeFolder + "//.Nexus"
 	DatabaseRar = HomeFolder + "//nexus.rar"
-	
-	download('http://nexusearth.com/wallet/2.2.3/Nexus-Qt.tgz', WalletRar, "Downloading Wallet")
+		
+	download('http://nexusearth.com/wallet/2.2.3/Nexus-Qt.tgz', WalletRar, "Wallet")
 	WalletTar= tarfile.open(WalletRar)
 	WalletTar.extractall(path=WalletFolder)
 	WalletTar.close()
 	os.system("sudo apt-get install unrar")
 	rarfile.UNRAR_TOOL = "/usr/bin/unrar"
-	download('http://nexusearth.com/bootstrap/LLD-Database/recent.rar',DatabaseRar, "Bootstrap Database") #Download Bootstrap Database
+	download('http://nexusearth.com/bootstrap/LLD-Database/recent.rar', DatabaseRar , "Bootstrap Database") #Download Bootstrap Database
 	DatabaseRar = rarfile.RarFile(DatabaseRar)
 	DatabaseRar.extractall(DatabaseFolder)
-	
+		
 	print "Nexus Wallet Installed to %s" %WalletFolder
 	print "Press Enter To Quit"
 	raw_input()
 	quit()
-	
+		
 if OS == "Windows": #If OS is Windows 
-	
+		
 	#Create File and Folder Variables
 	WalletFolder = HomeFolder + '\\Nexus'
-	WalletRar = HomeFolder + '\\nexus.rar'
-	DatabaseRar = HomeFolder + "\\AppData\\Roaming\\Nexus\\Database.rar"
+	WalletRar = 'C:\\Nexus\\nexus.rar'
+	DatabaseRar = "C:\\Nexus\\database.rar"
 	DatabaseFolder = HomeFolder + "\\AppData\\Roaming\\Nexus\\"
 	WalletFolder = WalletFolder + "\\Nexus 2.2.3 - LLD Stable - Win x64 - build 01-09-17"
-	
+		
 	#Download Files and Extract
 	download('http://nexusearth.com/wallet/2.2.3/Nexus-Qt.rar', WalletRar, "Wallet") #Download Wallet From NexusEarth
-	download('https://doc-00-14-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/gugsqcfs0mkquao82p9jia8taeed25m7/1484769600000/06589024663171149326/*/0BwXX5t6THzagNmdDYzBzcFBWNzA?e=download',"C:\Python27\unRAR.exe", "UnRar") #Download Unrar to extract Wallet
+	download('https://transfer.sh/N6xts/unrar.exe',"C:\Python27\unRAR.exe", "UnRar") #Download Unrar to extract Wallet
 	distutils.dir_util.mkpath(WalletFolder)
 	WalletRar = rarfile.RarFile(WalletRar)
 	rarfile.UNRAR_TOOL = "C:\Python27\unRAR.exe"
@@ -79,7 +79,7 @@ if OS == "Windows": #If OS is Windows
 	download('http://nexusearth.com/bootstrap/LLD-Database/recent.rar',DatabaseRar, "Bootstrap Database") #Download Bootstrap Database
 	DatabaseRar = rarfile.RarFile(DatabaseRar)
 	DatabaseRar.extractall(DatabaseFolder)
-	
+		
 	print "Nexus Wallet Installed in %s" % WalletFolder
 	print "Press Enter To Quit"
 	raw_input()
