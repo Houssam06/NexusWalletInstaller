@@ -10,7 +10,7 @@ package2="python-pip"
 package3="libqtgui4"
 package4="unrar"
 
-if [[ ! -e $sudo_cmd]]; then
+if [[ ! -e $sudo_cmd ]]; then
 	if [[ ! -e $yum_cmd ]]; then
 		sudo yum install $package1 $package2 $package3 $package4
 	elif [[ ! -e $apt_cmd ]]; then
