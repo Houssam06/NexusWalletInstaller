@@ -9,7 +9,8 @@ package1="python2.7"
 package2="python-pip"
 package3="libqtgui4"
 package4="unrar"
-if if [[ ! -e $sudo_cmd]]; then
+
+if [[ ! -e $sudo_cmd]]; then
 	if [[ ! -e $yum_cmd ]]; then
 		sudo yum install $package1 $package2 $package3 $package4
 	elif [[ ! -e $apt_cmd ]]; then
@@ -19,7 +20,7 @@ if if [[ ! -e $sudo_cmd]]; then
 	elif [[ ! -e $zypper_cmd ]]; then
 		sudo zypper install $package1 $package2 $package3 $package4
 	elif [[ ! -e $pacman_cmd ]]; then
-		sudo pacman -s $package1 $package2 $package3 $package4
+		sudo nepacman -s $package1 $package2 $package3 $package4
 	else
 		echo "error can't install packages"
 		exit 1;
