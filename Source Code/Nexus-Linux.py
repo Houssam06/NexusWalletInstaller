@@ -7,9 +7,18 @@ import distutils.dir_util
 import tarfile
 from clint.textui import progress
 
+def download(url, path, file):		
+	r = requests.get(url, stream=True)
+	print "Downloading %s" %file
+	with open(path, 'wb') as f:
+		total_length = int(r.headers.get('content-length'))
+		for chunk in progress.bar(r.iter_content(chunk_size=1024), expected_size=(total_length/1024) + 1): 
+			if chunk:
+				f.write(chunk)
+				f.flush()
 
 #Create File and Folder Variables
-HomeFolder = os.path.expanduser("~")
+HomeFolder	 = os.path.expanduser("~")
 WalletRar = HomeFolder + '//nexus.tgz'
 WalletFolder = HomeFolder + "//Nexus"
 DatabaseFolder = HomeFolder + "//.Nexus"
