@@ -1,6 +1,4 @@
 import os
-
-
 os.system("sudo apt-get -f  install python-pip")
 os.system("sudo apt-get -f install libqtgui4")
 os.system('python -m pip install tarfile')
